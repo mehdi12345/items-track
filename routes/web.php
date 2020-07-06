@@ -24,5 +24,5 @@ Route::get('/','positionController@index')->name('home');
 Route::get('/client','clients@getdata');
 Route::post('/positionStore','positionController@store');
 Route::post('/positionStop','positionController@stop');
-Route::post('/positionStop','positionController@stop');
+Route::post('/positionStart','positionController@start');
 

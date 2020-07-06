@@ -25,7 +25,8 @@ use App\Product;
             <h2 class="card-title">{{$product->name}}</h2>
             <p class="card-text">{{$product->price}} DHS</p>
             <div class="form">
-            {!! Form::open(['action' => 'positionController@index' , 'method' => 'get']) !!}
+            {!! Form::open(['action' => 'positionController@start' , 'method' => 'post']) !!}
+            {{Form::hidden('product_id',$product->id)}}
             {{Form::submit('Start',['class' => 'btn btn-primary'])}}
             {!! Form::close()!!}
             {!! Form::open(['action' => 'positionController@stop' , 'method' => 'post']) !!}
@@ -43,7 +44,6 @@ use App\Product;
 </div>
             {!! Form::open(['action' => 'positionController@store' , 'method' => 'POST']) !!}
             {{Form::hidden('user_id',Auth::user()->id)}}
-            {{Form::hidden('product_id',$product->id)}}
             {{Form::hidden('latitude','',['id' =>'latitude'])}}
             {{Form::hidden('longitude','',['id' =>'longitude'])}}
             {{Form::submit('store',['class' => 'btn btn-primary'])}}
