@@ -36,5 +36,7 @@ class Products extends Seeder
             'path' => 'image2.jpg',
             'user_name' =>'mehdi'
         ]);
+
+
     }
 }

@@ -12,41 +12,58 @@ class positionController extends Controller
     {
         $this->middleware('auth');
     }
+
+
     public function index()
     {
         return view('home');
     }
+
+
     public function store(Request $request){
+
         $this->validate($request,[
             'user_id' => 'required',
             'latitude' => 'required',
             'longitude' => 'required'
             ]);
-            $historique=historiquePosition::all();
 
-            for($i=0;$i<count($historique);$i++){
-                $results[$i]=$historique[$i]->product_id;
-            }
             $positions=Position::where('add','0')->get();
             foreach(Product::all() as $product){
         $position=new Position;
         $position->user_id=$request->input('user_id');
         $position->latitude=$request->input('latitude');
         $position->longitude=$request->input('longitude');
-        if(Count($positions)==0){
+        if(count(Position::all())<count(Product::all()) ){
+            $position->product_id=$product->id;
+            $position->save();
+        }
+        elseif(count($positions)==0){
             $position->product_id=$product->id;
             $position->save();
         }
         else{
         foreach($positions as $pos){
-            if($pos->product_id!=$product->id){
-        $position->product_id=$product->id;
-        $position->save();
-    }}
-    }
+                $PId[]=$pos->product_id;
         }
+        foreach($PId as $pid){
+            if($pid==$product->id){
+                $valid=1;
+            break;
+            }
+            else{
+                $valid=0;
+            }
+        }
+if($valid==0){
+ $position->product_id=$product->id;
+    $position->save();
+}
+}}
         return redirect('/');
         }
+
+
     public function stop(Request $request){
         $id=$request->input('user_id');
         $idP=$request->input('product_id');
@@ -65,6 +82,8 @@ class positionController extends Controller
     }
     return redirect("/");
     }
+
+
     public function start(Request $request){
         $idP=$request->input('product_id');
         Position::where('product_id',$idP)->update(['add' => '1']);

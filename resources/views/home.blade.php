@@ -4,7 +4,7 @@ use App\Product;
 @extends('layouts.app')
 @section('head')
 <meta content='600' http-equiv='refresh'/>
-<script src="{{ asset('js/position.js') }}" defer></script>
+<script src="{{ asset('js/position1.js') }}" defer></script>
 @endsection
 @section('content')
 <div class="container" id="one">
