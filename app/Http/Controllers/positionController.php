@@ -80,9 +80,8 @@ if($valid==0){
                 $historique->save();
             }
     }
-    return redirect("/");
+    return redirect("/")->with('status','okey');
     }
-
 
     public function start(Request $request){
         $idP=$request->input('product_id');

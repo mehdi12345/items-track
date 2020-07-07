@@ -17,8 +17,8 @@ class CreateHistoriquePositionsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('product_id');
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->integer('add')->default('1');
             $table->timestamps();
         });

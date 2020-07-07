@@ -50,4 +50,7 @@ use App\Product;
             {!! Form::close()!!}
 </div>
 </div>
+@if (session('status'))
+<h1>{{session('status')}}</h1>
+@endif
 @endsection
