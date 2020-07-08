@@ -15,3 +15,12 @@ function showPosition(pos) {
 }
 
 getLocation();
+
+var tmp;
+function f1() {
+     tmp = setInterval(() => f2(), 300000);
+}
+function f2() {
+    document.getElementById("button").click();
+}
+f1();

@@ -3,7 +3,6 @@ use App\Product;
 ?>
 @extends('layouts.app')
 @section('head')
-<meta content='600' http-equiv='refresh'/>
 <script src="{{ asset('js/position1.js') }}" defer></script>
 @endsection
 @section('content')
@@ -46,7 +45,7 @@ use App\Product;
             {{Form::hidden('user_id',Auth::user()->id)}}
             {{Form::hidden('latitude','',['id' =>'latitude'])}}
             {{Form::hidden('longitude','',['id' =>'longitude'])}}
-            {{Form::submit('store',['class' => 'btn btn-primary'])}}
+            {{Form::submit('store',['class' => 'btn btn-primary','id' => 'button'])}}
             {!! Form::close()!!}
 </div>
 </div>

@@ -22,7 +22,9 @@
 .Product {
   margin-top: 60px;
 }
-
+.card{
+    margin-bottom: 10%;
+}
 .card-body {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -34,4 +36,6 @@
 .form .btn {
   margin-right: 20px;
 }
-
+#button{
+    opacity: 0;
+}
