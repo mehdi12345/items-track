@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->float("price");
             $table->string('path');
             $table->string('user_name');
+            $table->integer('add')->default('1');
             $table->timestamps();
         });
     }

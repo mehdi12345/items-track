@@ -12,10 +12,16 @@ class clients extends Controller
     {
         return view('clientside');
     }
-    public function getdata(){
-        $data=Position::Find(Auth::user()->id,'user_id');
-        $latitude=$data->latest()->first()->latitude;
-        $longitude=$data->latest()->first()->longitude;
-        return view('clientside',['latitude'=>$latitude,'longitude' => $longitude]);
+
+    public function productId(Request $request){
+        $product_id=$request->input('id');
+        $product=Position::where('product_id',$product_id)->latest()->first();
+        Position::where('product_id',$product_id)->update(['show'=>'1']);
+        $show=Position::where('product_id',$product_id)->latest()->first();
+
+        $latitude=$product->latitude;
+        $longitude=$product->longitude;
+        return view('clientside',['latitude'=>$latitude,'longitude' => $longitude,'product_id' =>$product_id]);
+
     }
 }

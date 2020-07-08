@@ -21,17 +21,33 @@ use App\Product;
     <div class="card">
         <img src="images/{{$product->path}}" alt="" class="card-img-top">
         <div class="card-body">
+            @if($product->add==0)
+            <h5 class="alert alert-danger">this product is delivered</h5>
+            @endif
+            @if($product->add==1)
+            <h5 class="alert alert-success">this product is not delivered</h5>
+            @endif
             <h2 class="card-title">{{$product->name}}</h2>
             <p class="card-text">{{$product->price}} DHS</p>
             <div class="form">
             {!! Form::open(['action' => 'positionController@start' , 'method' => 'post']) !!}
             {{Form::hidden('product_id',$product->id)}}
+            @if($product->add==1)
+            {{Form::submit('Start',['class' => 'btn btn-primary one'])}}
+            @endif
+            @if($product->add==0)
             {{Form::submit('Start',['class' => 'btn btn-primary'])}}
+            @endif
             {!! Form::close()!!}
             {!! Form::open(['action' => 'positionController@stop' , 'method' => 'post']) !!}
             {{Form::hidden('user_id',Auth::user()->id)}}
             {{Form::hidden('product_id',$product->id)}}
-            {{Form::submit('Stop',['class' => 'btn btn-primary'])}}
+            @if($product->add==1)
+            {{Form::submit('Stop',['class' => 'btn btn-primary '])}}
+            @endif
+            @if($product->add==0)
+            {{Form::submit('Stop',['class' => 'btn btn-primary one'])}}
+            @endif
             {!! Form::close()!!}
             </div>
         </div>
@@ -49,7 +65,7 @@ use App\Product;
             {!! Form::close()!!}
 </div>
 </div>
-@if (session('status'))
-<h1>{{session('status')}}</h1>
+@if (URL::current()=='http://127.0.0.1:8000/positionStop')
+
 @endif
 @endsection

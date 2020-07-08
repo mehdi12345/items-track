@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/','positionController@index')->name('home');
-Route::get('/client','clients@getdata');
+Route::get('/client','clients@index');
+Route::post('/idproduct','clients@productId');
 Route::post('/positionStore','positionController@store');
 Route::post('/positionStop','positionController@stop');
 Route::post('/positionStart','positionController@start');

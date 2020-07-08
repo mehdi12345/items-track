@@ -69,6 +69,7 @@ if($valid==0){
         $id=$request->input('user_id');
         $idP=$request->input('product_id');
         Position::where('product_id',$idP)->update(['add' => '0']);
+        Product::where('id',$idP)->update(['add' => '0']);
         $results=Position::where('user_id',$id)->get();
         $size=count($results);
         for($i=0 ; $i<$size; $i++){
@@ -81,12 +82,13 @@ if($valid==0){
                 $historique->save();
             }
     }
-    return redirect("/")->with('status','okey');
+    return redirect("/");
     }
 
     public function start(Request $request){
         $idP=$request->input('product_id');
         Position::where('product_id',$idP)->update(['add' => '1']);
+        Product::where('id',$idP)->update(['add' => '1']);
 return redirect("/");
     }
 
