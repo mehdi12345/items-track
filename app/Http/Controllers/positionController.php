@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Position;
 use App\Product;
+use Illuminate\Support\Facades\Auth;;
 use App\historiquePosition;
 use PHPUnit\Framework\Constraint\Count;
 
@@ -29,7 +30,7 @@ class positionController extends Controller
             ]);
 
             $positions=Position::where('add','0')->get();
-            foreach(Product::all() as $product){
+            foreach(Product::all()->where('user_name',Auth::user()->name) as $product){
         $position=new Position;
         $position->user_id=$request->input('user_id');
         $position->latitude=$request->input('latitude');

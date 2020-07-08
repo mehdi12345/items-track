@@ -36,6 +36,18 @@ class Products extends Seeder
             'path' => 'image2.jpg',
             'user_name' =>'mehdi'
         ]);
+        Product::create([
+            'name' => 'camera3',
+            'price' => '1600',
+            'path' => 'image1.jpg',
+            'user_name' =>'mehdi1'
+        ]);
+        Product::create([
+            'name' => 'camera4',
+            'price' => '1500',
+            'path' => 'image2.jpg',
+            'user_name' =>'mehdi1'
+        ]);
 
 
     }
