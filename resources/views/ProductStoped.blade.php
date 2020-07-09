@@ -14,9 +14,9 @@ use App\Product;
 <br> <br>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-6"><a href="#"><h4>Product : {{count(Product::where('user_name',Auth::user()->name)->where('add','1')->get())}}</h4></a>
+        <div class="col-6"><a href="/"><h4>Product:{{count(Product::where('user_name',Auth::user()->name)->where('add','1')->get())}}</h4></a>
         </div>
-        <div class="col-6"><a href="ProductStoped"><h4 class="stop">Product stoped : {{count(Product::where('user_name',Auth::user()->name)->where('add','0')->get())}}</h4></a>
+        <div class="col-6"><a href="#"><h4 class="stop">Product stoped:{{count(Product::where('user_name',Auth::user()->name)->where('add','0')->get())}}</h4></a>
         </div>
     </div>
 </div>
@@ -25,7 +25,7 @@ use App\Product;
     <div class="row">
     @foreach(Product::all() as $product)
     @if(Auth::user()->name==$product->user_name)
-    @if($product->add==1)
+    @if($product->add==0)
         <div class="col-md-4">
 
     <div class="card">
@@ -43,8 +43,7 @@ use App\Product;
             {!! Form::open(['action' => 'positionController@start' , 'method' => 'post']) !!}
             {{Form::hidden('product_id',$product->id)}}
             @if($product->add==1)
-            {{Form::submit('Start',['class' => 'btn btn-primary one','disabled'=> 'disabled'])}}
-
+            {{Form::submit('Start',['class' => 'btn btn-primary one'])}}
             @endif
             @if($product->add==0)
             {{Form::submit('Start',['class' => 'btn btn-primary'])}}
@@ -57,7 +56,7 @@ use App\Product;
             {{Form::submit('Stop',['class' => 'btn btn-primary '])}}
             @endif
             @if($product->add==0)
-            {{Form::submit('Stop',['class' => 'btn btn-primary one'])}}
+            {{Form::submit('Stop',['class' => 'btn btn-primary one','disabled'=> 'disabled'])}}
             @endif
             {!! Form::close()!!}
             </div>

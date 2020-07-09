@@ -28,7 +28,6 @@ class positionController extends Controller
             'latitude' => 'required',
             'longitude' => 'required'
             ]);
-
             $positions=Position::where('add','0')->get();
             foreach(Product::all()->where('user_name',Auth::user()->name) as $product){
         $position=new Position;
@@ -89,7 +88,7 @@ if($valid==0){
         $idP=$request->input('product_id');
         Position::where('product_id',$idP)->update(['add' => '1']);
         Product::where('id',$idP)->update(['add' => '1']);
-return redirect("/");
+return redirect("ProductStoped");
     }
 
 }

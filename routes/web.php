@@ -26,4 +26,7 @@ Route::post('/idproduct','clients@productId');
 Route::post('/positionStore','positionController@store');
 Route::post('/positionStop','positionController@stop');
 Route::post('/positionStart','positionController@start');
+Route::get('/ProductStoped',function(){
+    return view('ProductStoped');
+});
 
