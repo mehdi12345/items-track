@@ -18,7 +18,7 @@ class clients extends Controller
         $product=Position::where('product_id',$product_id)->latest()->first();
         $latitude=$product->latitude;
         $longitude=$product->longitude;
-        return view('map')->with(['latitude' => $latitude ,'longitude' => $longitude ]);
+        return view('map')->with(['latitude' => $latitude ,'longitude' => $longitude]);
 
     }
 }

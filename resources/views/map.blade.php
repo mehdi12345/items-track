@@ -14,14 +14,16 @@ src="http://maps.google.com/maps/api/js?sensor=false"></script>
     {{Form::number('product_id','',['placeholder' => 'enter your product id', 'class' => 'form-control'])}} <br>
     {{Form::submit('submit',['class' => 'btn btn-primary'])}}
         {!! Form::close()!!}
-
+    <div style="height: 20px"></div>
         <style>
             #Map{
                 width: 100%;
                 height: 350px;
             }
         </style>
-       <button type="button" onclick="getMap({{$latitude}},{{$longitude}});">Show Position on Google Map</button>
+       <center><button type="button" onclick="getMap({{$latitude}},{{$longitude}});">Show Position on Google Map</button></center>
+       <div style="height: 20px"></div>
+
        <div id="Map">
        </div>
 </div>
