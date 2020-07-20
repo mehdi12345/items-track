@@ -32,4 +32,7 @@ Route::get('/ProductStoped',function(){
 Route::get('/map',function(){
     return view('map');
 })->name('map');
+Route::get('/Store',function(){
+    return view('ProductStore');
+})->name('store');
 
