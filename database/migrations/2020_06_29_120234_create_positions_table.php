@@ -20,7 +20,6 @@ class CreatePositionsTable extends Migration
             $table->double('latitude');
             $table->double('longitude');
             $table->integer('add')->default('1');
-            $table->integer('show')->default('0');
             $table->timestamps();
         });
     }

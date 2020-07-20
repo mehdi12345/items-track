@@ -29,4 +29,7 @@ Route::post('/positionStart','positionController@start');
 Route::get('/ProductStoped',function(){
     return view('ProductStoped');
 });
+Route::get('/map',function(){
+    return view('map');
+})->name('map');
 

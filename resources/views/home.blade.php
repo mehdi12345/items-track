@@ -78,7 +78,5 @@ use App\Product;
             {!! Form::close()!!}
 </div>
 </div>
-@if (URL::current()=='http://127.0.0.1:8000/positionStop')
 
-@endif
 @endsection

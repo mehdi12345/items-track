@@ -1,3 +1,5 @@
+
+
 var show = document.getElementById("latitude");
 var show1 = document.getElementById("longitude");
 function getLocation() {
