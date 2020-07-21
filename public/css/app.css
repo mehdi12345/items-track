@@ -22,8 +22,11 @@
 .Product {
   margin-top: 60px;
 }
+.card-img-top{
+    height: 300px;
+}
 .card{
-    margin-bottom: 10%;
+    margin-bottom: 20px;
 }
 .card-body {
   background-color: rgba(0, 0, 0, 0.1);
@@ -36,12 +39,4 @@
 .form .btn {
   margin-right: 20px;
 }
-#button{
-    opacity: 0;
-}
-.one{
-    opacity: 0.5;
-}
-.col-6{
-    text-align: center;
-}
+

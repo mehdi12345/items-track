@@ -4,6 +4,8 @@ use App\Product;
 @extends('layouts.app')
 @section('head')
 <script src="{{ asset('js/position1.js') }}" defer></script>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 @endsection
 @section('content')
 <div class="container" id="one">

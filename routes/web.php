@@ -35,4 +35,5 @@ Route::get('/map',function(){
 Route::get('/Store',function(){
     return view('ProductStore');
 })->name('store');
+Route::post('/upload','productController@upload');
 
